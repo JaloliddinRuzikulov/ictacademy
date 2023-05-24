@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # build-apps
-    ''
+    'rest_framework',
 
     # local apps
     'apps.blog',
