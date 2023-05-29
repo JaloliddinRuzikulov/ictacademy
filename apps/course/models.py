@@ -24,7 +24,7 @@ class Courses(models.Model):
     lessons_desc = models.CharField(max_length=150, null=True, blank=True)
     
 
-class KursgaYozilish(models.Model):
+class Contact(models.Model):
     full_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
     email = models.CharField(max_length=100)

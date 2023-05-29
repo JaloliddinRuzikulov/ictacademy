@@ -1,23 +1,18 @@
 from rest_framework import serializers
-from apps.about.models import Mentors, About, Feedback, Projects
+from apps.about.models import Mentors,  Feedback, Projects
 from apps.blog.models import ArticleCategory, Article
-from apps.contact.models import Contact
-from apps.course.models import CourseCategory, Courses, KursgaYozilish
+# from apps.contact.models import Contact
+from apps.course.models import CourseCategory, Courses, Contact
 
 
 
 class MentorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mentors
-        fields = '__all__'
+        fields = ('name', 'profession', 'github', 'linkedin', 'telegram', 'instagram')
 
 
  
-class AboutSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = About
-        fields = '__all__'
-
 class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
         model = Feedback
@@ -38,10 +33,6 @@ class ArticleCategorySerializer(serializers.ModelSerializer):
         model = ArticleCategory
         fields = '__all__'
 
-class ContactSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Contact
-        fields = '__all__'
 
 class CoursesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -54,7 +45,26 @@ class CourseCategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class KursgaYozilishSerializer(serializers.ModelSerializer):
+class ContactSerializer(serializers.ModelSerializer):
     class Meta:
-        model = KursgaYozilish
+        model = Contact
         fields = '__all__'
+
+
+
+
+
+class CompanysSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feedback
+        fields = ('company','company_logo')
+
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     if instance.company_logo:
+    #         representation['company_logo'] = instance.company_logo.url
+    #     return representation
+
+    # def get_filtered_queryset(self):
+    #     queryset = self.Meta.model.objects.filter(company_logo__isnull=False)
+    #     return queryset

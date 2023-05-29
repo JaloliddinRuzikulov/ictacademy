@@ -19,20 +19,12 @@ class Mentors(models.Model):
     
 
 
-class About(models.Model):
-    director_name = models.CharField(max_length=50)
-    director_img = models.ImageField()
-    biz_haqimizda = models.TextField()
-
-    faoliyatimiz = models.TextField()
-    dfaoliyat_img = models.ImageField()
-
 
 class Feedback(models.Model):
     full_name = models.CharField(max_length=50)
     profession = models.CharField(max_length=50)
     feedback = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField( null=True, blank=True)
     company = models.CharField(max_length = 50, null=True, blank=True)
     company_logo = models.ImageField(upload_to='logo/', null=True, blank=True)
 
