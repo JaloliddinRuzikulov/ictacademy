@@ -19,5 +19,4 @@ urlpatterns = [
     
 
     path('contact/', ContactCreateView.as_view()),
-    path('company/', CompanysListView.as_view()),
-]
+    path('company/', CompanysListView.as_view()), ]
