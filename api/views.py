@@ -5,7 +5,7 @@ from .serializers import *
 from .pagination import *
 import requests
 # Create your views here.
-
+from rest_framework.decorators import api_view
 
 
 #----------------------------- GENERIC VIEWS -----------------------#
@@ -76,10 +76,45 @@ class ProjectsRetrieveView(generics.RetrieveAPIView):
 class ArticleRetrieveView(generics.RetrieveAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    
+    
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+import datetime
+import subprocess
 
 # CREATE VIEW  => POST
 class ContactCreateView(generics.CreateAPIView):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
+    
+    def perform_create(self, serializer):
+        # Save the object
+        instance = serializer.save()
+        # instance = "ok"
+        data = self.request.data
+        
+        self.another_function(instance, data)
 
+    def another_function(self, instance, data):
+        today = datetime.date.today()
+        formatted_date = today.strftime("%Y-%m-%d")
+        
+        text = f"""
+📝 Yangi ariza:\n
+🙍🏻‍♂️ Foydalanuvchi: {data['full_name']}
+📲 Telefon: {data['phone']}
+🧑🏻‍💻 Tanlagan kurs: {data['profession']}
+📅 Sana: {formatted_date}
+"""
+        with open('api/data.txt', 'w') as file:
+            file.write(str(text))
+
+            
+        try:
+            subprocess.run(['python', 'api/tg_bot.py'])
+        except subprocess.CalledProcessError as e:
+            print(f"============================ Error executing the script: {e}")
+
+        print(" ========================== contact create view  another_function ================================")

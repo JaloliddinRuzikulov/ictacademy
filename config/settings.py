@@ -44,7 +44,6 @@ INSTALLED_APPS = [
 
     # local apps
     'apps.blog',
-    'apps.contact',
     'apps.course',
     'apps.about',
 ]
