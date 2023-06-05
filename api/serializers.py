@@ -45,6 +45,13 @@ class CourseCategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+# class CourseByCategorySerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Courses
+#         fields = '__all__'
+
+
+
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact

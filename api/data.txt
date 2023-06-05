@@ -1,7 +1,8 @@
 
 📝 Yangi ariza:
 
-🙍🏻‍♂️ Foydalanuvchi: Jaloliddin Mamatmusayev
-📲 Telefon: +998932977419
-🧑🏻‍💻 Tanlagan kurs: .NET dasturlash kursi
-📅 Sana: 2023-06-02
+🙍🏻‍♂️ Foydalanuvchi: string
+📲 Telefon: string
+🧑🏻‍💻 Kategoriya: English for it
+🧑🏻‍💻 Tanlagan kurs: beginer
+📅 Sana: 2023-06-05

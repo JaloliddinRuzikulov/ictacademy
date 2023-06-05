@@ -4,10 +4,14 @@ from rest_framework.response import Response
 from .serializers import *
 from .pagination import *
 import requests
+
+import datetime
+import subprocess
+
+from api import tg_bot
 # Create your views here.
-from rest_framework.decorators import api_view
-
-
+# from rest_framework.decorators import api_view
+from django_filters.rest_framework import DjangoFilterBackend
 #----------------------------- GENERIC VIEWS -----------------------#
 
 
@@ -24,7 +28,12 @@ class FeedbackListView(generics.ListAPIView):
 class CoursesListView(generics.ListAPIView):
     queryset = Courses.objects.all()
     serializer_class = CoursesSerializer
-
+    filter_backends = [
+            DjangoFilterBackend
+        ]
+    filterset_fields = ['category']
+ 
+    
 class ProjectsListView(generics.ListAPIView):
     queryset = Projects.objects.all()
     serializer_class = ProjectsSerializer
@@ -77,35 +86,42 @@ class ArticleRetrieveView(generics.RetrieveAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     
+
+# class FilteredCourseList(generics.ListAPIView):
+#     queryset = Courses.objects.all()
+#     serializer_class = CourseByCategorySerializer
+#     filter_backends = [
+#         DjangoFilterBackend
+#     ]
+#     filterset_fields = ['category']
+ 
     
-from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-import datetime
-import subprocess
-
-# CREATE VIEW  => POST
+    
+    
+# CREATE VIEW  => POST ## send message by telegram bot
 class ContactCreateView(generics.CreateAPIView):
-    queryset = Contact.objects.all()
+    queryset = Courses.objects.all()
     serializer_class = ContactSerializer
     
     def perform_create(self, serializer):
         # Save the object
-        instance = serializer.save()
-        # instance = "ok"
+        # instance = serializer.save()
+        instance = "ok"
         data = self.request.data
         
-        self.another_function(instance, data)
+        self.another_function( data)
 
-    def another_function(self, instance, data):
+    def another_function(self, data):
         today = datetime.date.today()
         formatted_date = today.strftime("%Y-%m-%d")
+        course = self.queryset.get(id=int(data['profession']))
         
         text = f"""
 📝 Yangi ariza:\n
 🙍🏻‍♂️ Foydalanuvchi: {data['full_name']}
 📲 Telefon: {data['phone']}
-🧑🏻‍💻 Tanlagan kurs: {data['profession']}
+🧑🏻‍💻 Kategoriya: {course.category}
+🧑🏻‍💻 Tanlagan kurs: {course.name}
 📅 Sana: {formatted_date}
 """
         with open('api/data.txt', 'w') as file:
@@ -113,8 +129,9 @@ class ContactCreateView(generics.CreateAPIView):
 
             
         try:
+            # tg_bot.run_bot()
             subprocess.run(['python', 'api/tg_bot.py'])
-        except subprocess.CalledProcessError as e:
+        except Exception as e:
             print(f"============================ Error executing the script: {e}")
 
         print(" ========================== contact create view  another_function ================================")

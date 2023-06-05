@@ -17,6 +17,8 @@ urlpatterns = [
     path('article/', ArticleListView.as_view()),
     path('article/<int:pk>/', ArticleRetrieveView.as_view()),
     
-
+    
     path('contact/', ContactCreateView.as_view()),
-    path('company/', CompanysListView.as_view()), ]
+    path('company/', CompanysListView.as_view()), 
+   
+    ]
