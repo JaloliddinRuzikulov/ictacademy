@@ -6,7 +6,6 @@ from .pagination import *
 import requests
 
 import datetime
-import subprocess
 
 from api import tg_bot
 # Create your views here.
@@ -105,8 +104,8 @@ class ContactCreateView(generics.CreateAPIView):
     
     def perform_create(self, serializer):
         # Save the object
-        # instance = serializer.save()
-        instance = "ok"
+        instance = serializer.save()
+        # instance = "ok"
         data = self.request.data
         
         self.another_function( data)
