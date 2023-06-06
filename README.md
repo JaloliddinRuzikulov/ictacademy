@@ -1,3 +1,3 @@
 # ICT academy
-https://github.com/jaloliddin1006/ictacademy/assets/70073648/4b5d54db-cd85-4261-bd98-f6920f781d45
 
+![ictacademy](https://github.com/jaloliddin1006/ictacademy/assets/70073648/6bbf1b23-fa93-451e-97ce-a5460d5a3128)
