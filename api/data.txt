@@ -1,8 +1,8 @@
 
 📝 Yangi ariza:
 
-🙍🏻‍♂️ Foydalanuvchi: string
-📲 Telefon: string
-🧑🏻‍💻 Kategoriya: English for it
-🧑🏻‍💻 Tanlagan kurs: beginer
-📅 Sana: 2023-06-05
+🙍🏻‍♂️ Foydalanuvchi: Jaloliddin
+📲 Telefon: 213213215
+🧑🏻‍💻 Kategoriya: Mutaxasislik kurslari
+🧑🏻‍💻 Tanlagan kurs: Python full stack
+📅 Sana: 2023-06-13

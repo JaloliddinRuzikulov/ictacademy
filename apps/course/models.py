@@ -25,13 +25,24 @@ class Courses(models.Model):
     lessons_desc = models.CharField(max_length=150, null=True, blank=True)
     
 
-class Contact(models.Model):
+class EnrollCourse(models.Model):
     full_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    profession = models.CharField(max_length=100)
+    courseid = models.IntegerField()
     date = models.DateField(auto_now_add=True)
     
     def __str__(self) -> str:
         return f"{self.full_name} - {self.phone}"
+
+
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=100)
+    body = models.TextField(null=True, blank=True)
+    date = models.DateField(auto_now_add=True)
+    
+    def __str__(self) -> str:
+        return f"{self.name} - {self.phone}"
 

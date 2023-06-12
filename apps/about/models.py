@@ -12,6 +12,8 @@ class Mentors(models.Model):
     linkedin = models.CharField(max_length=200, null=True, blank=True)
     telegram = models.CharField(max_length=200, null=True, blank=True)
     instagram = models.CharField(max_length=200, null=True, blank=True)
+    
+    image = models.ImageField(upload_to='mentors/',)
 
 
     def __str__(self) -> str:
@@ -41,9 +43,9 @@ class Projects(models.Model):
     spend_time = models.IntegerField()
     users = models.IntegerField()
 
-    mijoz_haqida = models.TextField(null=True, blank=True)
-    talablar = models.TextField(null=True, blank=True)
-    topshirilgan_sana = models.DateField(null=True, blank=True)
+    about_customer = models.TextField(null=True, blank=True)
+    requirements = models.TextField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.product_name
