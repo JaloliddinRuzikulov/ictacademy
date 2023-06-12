@@ -86,6 +86,11 @@ class ArticleRetrieveView(generics.RetrieveAPIView):
     serializer_class = ArticleSerializer
     
 
+class AboutUsRetrieveView(generics.ListAPIView):
+    queryset = AboutUs.objects.all()
+    serializer_class = AboutUsSerializer
+    
+
 # class FilteredCourseList(generics.ListAPIView):
 #     queryset = Courses.objects.all()
 #     serializer_class = CourseByCategorySerializer

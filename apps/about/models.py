@@ -49,3 +49,16 @@ class Projects(models.Model):
 
     def __str__(self) -> str:
         return self.product_name
+    
+    
+
+class AboutUs(models.Model):
+    title = models.CharField(max_length=50)
+    body = models.TextField()
+    director = models.CharField(max_length = 70, null=True, blank=True)
+    director_pos = models.CharField(max_length = 70, null=True, blank=True)
+    image = models.ImageField(upload_to='image/', null=True, blank=True)
+
+
+    def __str__(self) -> str:
+        return str("About part on Academy")
