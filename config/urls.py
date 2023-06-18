@@ -14,7 +14,7 @@ schema_view = get_schema_view(
         default_version='v1',
         description="ICT Academy web-site",
         terms_of_service="https://www.example.com/terms/",
-        contact=openapi.Contact(email="contact@example.com"),
+        contact=openapi.Contact(email="mail@ictacademy.uz"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
@@ -22,10 +22,8 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('api/admin/', admin.site.urls),
     path('api/v1/', include('api.urls')),
-
-
-    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('api/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

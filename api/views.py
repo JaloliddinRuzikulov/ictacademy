@@ -110,7 +110,6 @@ class EnrollCourseCreateView(generics.CreateAPIView):
     def perform_create(self, serializer):
         # Save the object
         instance = serializer.save()
-        # instance = "ok"
         data = self.request.data
         
         self.another_function( data)
@@ -139,8 +138,7 @@ class EnrollCourseCreateView(generics.CreateAPIView):
             print(f"============================ Error executing the script: {e}")
 
         print(" ========================== contact create view  another_function ================================")
-        
-        
+  
         
 class ContactCreateView(generics.CreateAPIView):
     queryset = Contact.objects.all()
