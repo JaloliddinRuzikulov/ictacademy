@@ -8,7 +8,7 @@ from apps.course.models import CourseCategory, Courses, Contact, EnrollCourse
 class MentorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mentors
-        fields = ('name', 'profession', 'github', 'linkedin', 'telegram', 'instagram')
+        fields = ('name', 'profession', 'github', 'linkedin', 'telegram', 'instagram', 'image')
 
 
  

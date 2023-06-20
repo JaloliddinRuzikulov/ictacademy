@@ -1,7 +1,8 @@
 
-📝 Yangi Xabar:
+📝 Yangi ariza:
 
-🙍🏻‍♂️ Foydalanuvchi: string
-📲 Telefon: string
-📲 Xabar matni: string
-📅 Sana: 2023-06-16
+🙍🏻‍♂️ Foydalanuvchi: fdssafada
+📲 Telefon: 123118
+🧑🏻‍💻 Kategoriya: Foundation
+🧑🏻‍💻 Tanlagan kurs: C++
+📅 Sana: 2023-06-19

@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # build-apps
     'django_filters',
     'rest_framework',
@@ -47,18 +46,20 @@ INSTALLED_APPS = [
     'apps.blog',
     'apps.course',
     'apps.about',
+    'corsheaders',
 ]
 
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 SWAGGER_SETTINGS = {
     'DEFAULT_AUTO_SCHEMA_CLASS': 'drf_yasg.inspectors.SwaggerAutoSchema',
@@ -80,12 +81,9 @@ REST_FRAMEWORK = {
 }
 
 # cors headers ->
-CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:3000",
-    "http://localhost:3000",
-    "ictacademy.uz",
-]
+CORS_ORIGIN_ALLOW_ALL = True
 
+ALLOWED_HOSTS = ['ictacademy.uz', 'localhost', '127.0.0.1']
 CORS_ALLOW_METHODS = [
     '*'
 ]
@@ -94,6 +92,7 @@ CORS_ALLOW_HEADERS = [
     '*'
 ]
 CORS_ALLOW_CREDENTIALS = True
+
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
