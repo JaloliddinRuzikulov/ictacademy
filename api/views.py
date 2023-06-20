@@ -91,14 +91,6 @@ class AboutUsRetrieveView(generics.ListAPIView):
     serializer_class = AboutUsSerializer
     
 
-# class FilteredCourseList(generics.ListAPIView):
-#     queryset = Courses.objects.all()
-#     serializer_class = CourseByCategorySerializer
-#     filter_backends = [
-#         DjangoFilterBackend
-#     ]
-#     filterset_fields = ['category']
- 
     
     
     
